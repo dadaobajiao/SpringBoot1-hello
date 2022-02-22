@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>链接表达式</title>
+</head>
+<body>
+  <p>绝对路径</p>
+  <a th:href="@{http://www.baidu.com}">绝对地址</a>
+
+  <p>相对路径</p>
+  <a th:href="@{/tpl/queryAccount}">相对地址没有参数</a>
+  <a th:href="@{'/tpl/queryAccount?id='+${userId}}">相对地址有参数</a>
+  <a th:href="@{/tpl/queryUser(name='刘运姣',age=8)}">相对地址传递多个参数</a>
+</body>
+</html>

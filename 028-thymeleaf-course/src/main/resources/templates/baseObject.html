@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>模板内置对象，方便使用request，session</title>
+</head>
+<body>
+    <div style="margin-left: 350px">
+        <h3>内置对象#request,#session，session的使用</h3>
+        <p>获取作用域中的数据</p>
+        <p th:text="${#request.getAttribute('requestData')}"></p>
+        <p th:text="${#session.getAttribute('sessionData')}"></p>
+        <p th:text="${session.loginname}"></p>
+
+        <br/>
+        <br/>
+        <h3>使用内置对象的方法</h3>
+        <!--完整地址，加上协议的  http://localhost:8080/tpl/baseObject-->
+        getRequestURL=<span th:text="${#request.getRequestURL()}"></span><br/>
+        <!--没有协议和ip /tpl/baseObject-->
+        getRequestURI=<span th:text="${#request.getRequestURI()}"></span><br/>
+
+        getQueryString=<span th:text="${#request.getQueryString()}"></span><br/>
+        <!--上下文 空，应为我没设置-->
+        getContextPath=<span th:text="${#request.getContextPath()}"></span><br/>
+        <!--服务器的名字 localhost-->
+        getServerName=<span th:text="${#request.getServerName()}"></span><br/>
+        <!--端口号 8080-->
+        getServerPort=<span th:text="${#request.getServerPort()}"></span><br/>
+        <!--session id 404CCAB8503BE4538429B2AB1C422E87-->
+        <!--如果要调用方法的话，要用#session，session只是一个map，为了方便获取里面的值-->
+        sessionId,getId=<span th:text="${#session.getId()}"></span>
+
+        <h3>param对象：表示请求的参数集合</h3>
+        name参数的值：<span th:text="${param.name}"></span><br/>
+        参数的数量：<span th:text="${param.size()}"></span><br/>
+    </div>
+</body>
+</html>
